@@ -95,7 +95,7 @@ class ViewController: UIViewController {
     }
     
     func openPage(pageUrl: String) {
-        //debugPrint(pageUrl)
+        //debugPrint(pageUrl);
         let openPageJS = """
             var url = "\(pageUrl)";
             ios_redirections(url);

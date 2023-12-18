@@ -40,6 +40,56 @@
 				<string>bitrequests.github.io</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.github.lndconnect</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>lndconnect</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.github.c-lightning-rest</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>c-lightning-rest</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.github.eclair</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>eclair</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.github.acinq</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>acinq</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.github.lnbits</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>lnbits</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

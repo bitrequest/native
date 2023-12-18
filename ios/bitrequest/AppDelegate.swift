@@ -52,6 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.handleIncomingDynamicLink(dynamicLink)
             return true
         } else {
+            let baseurl = "https://bitrequest.github.io?p=home&scheme=";
+            let string_url = "\(url)";
+            let divider = string_url.firstIndex(of: ":")!
+            let scheme = string_url[...divider];
+            if (scheme == "lndconnect:" || scheme == "c-lightning-rest:" || scheme == "eclair:" || scheme == "acinq:" || scheme == "lnbits:") {
+                let encodedstring = string_url.data(using: .utf8)?.base64EncodedString();
+                if (encodedstring != nil) {
+                    webAppUrl = baseurl + encodedstring!;
+                }
+                else {
+                    webAppUrl = baseurl + "false";
+                }
+            }
             return false
         }
     }
