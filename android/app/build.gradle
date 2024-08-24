@@ -42,13 +42,13 @@ def twaManifest = [
 ]
 
 android {
-    compileSdkVersion 34
     defaultConfig {
+        compileSdk 34
         applicationId twaManifest.applicationId
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 52
-        versionName "1.5.6"
+        versionCode 55
+        versionName "1.5.8"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         // The name for the application on the Android Launcher
@@ -120,9 +120,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'com.placeholder'
 }
 
-task generateShorcutsFile {
+tasks.register('generateShorcutsFile') {
     assert twaManifest.shortcuts.size() < 5, "You can have at most 4 shortcuts."
     twaManifest.shortcuts.eachWithIndex { s, i ->
         assert s.name != null, 'Missing `name` in shortcut #' + i
@@ -160,11 +161,10 @@ task generateShorcutsFile {
 preBuild.dependsOn(generateShorcutsFile)
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    implementation platform('com.google.firebase:firebase-bom:33.1.0')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
-    implementation 'com.google.firebase:firebase-core'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-dynamic-links'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
 }

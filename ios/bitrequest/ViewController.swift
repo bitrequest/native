@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         // settings
         webView.allowsBackForwardNavigationGestures = true
         webView.configuration.preferences.javaScriptEnabled = true
-        //webView.customUserAgent = desktopUserAgent // set useragent to desktop to prevet OAuth returning '403 dissalowed useragent'
+        webView.customUserAgent = desktopUserAgent // set useragent to desktop to prevet OAuth returning '403 dissalowed useragent'
         webView.scrollView.bounces = false
     }
     
@@ -91,7 +91,6 @@ class ViewController: UIViewController {
             ios_init();
         """
         webView.evaluateJavaScript(initPageJS, completionHandler: nil)
-        Analytics.logEvent("custom_app_init", parameters: ["br_url" : webAppUrl])
     }
     
     func openPage(pageUrl: String) {
@@ -101,7 +100,6 @@ class ViewController: UIViewController {
             ios_redirections(url);
         """
         webView.evaluateJavaScript(openPageJS, completionHandler: nil)
-        Analytics.logEvent("custom_app_open", parameters: ["br_url" : pageUrl])
     }
 }
 
