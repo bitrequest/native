@@ -43,12 +43,12 @@ def twaManifest = [
 
 android {
     defaultConfig {
-        compileSdk 34
+        compileSdk 36
         applicationId twaManifest.applicationId
         minSdkVersion 23
-        targetSdkVersion 33
-        versionCode 55
-        versionName "1.5.8"
+        targetSdkVersion 36
+        versionCode 58
+        versionName "1.5.9"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         // The name for the application on the Android Launcher
@@ -161,10 +161,10 @@ tasks.register('generateShorcutsFile') {
 preBuild.dependsOn(generateShorcutsFile)
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+    implementation platform('com.google.firebase:firebase-bom:33.15.0')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.6.1'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-dynamic-links'
-    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
 }
