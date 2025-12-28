@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     Copyright 2019 Google Inc. All Rights Reserved.
 
@@ -14,11 +15,6 @@
      limitations under the License.
 -->
 
-<!-- The "package" attribute is rewritten by the Gradle build with the value of applicationId.
-     It is still required here, as it is used to derive paths, for instance when referring
-     to an Activity by ".MyActivity" instead of the full name. If more Activities are added to the
-     application, the package attribute will need to reflect the correct path in order to use
-     the abbreviated format. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
@@ -26,6 +22,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appName"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="false"
+        android:enableOnBackInvokedCallback="true"
         android:theme="@style/Theme.LauncherActivity">
 
         <meta-data
@@ -35,41 +33,41 @@
             android:name="cros_web_alternative"
             android:value="@string/crosLaunchUrl" />
 
-        <activity android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
+        <activity
+            android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
             android:exported="true">
-            <meta-data android:name="android.support.customtabs.trusted.DEFAULT_URL"
-                android:value="@string/launchUrl" />
 
+            <meta-data
+                android:name="android.support.customtabs.trusted.DEFAULT_URL"
+                android:value="@string/launchUrl" />
             <meta-data
                 android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
                 android:resource="@color/colorPrimary" />
-
             <meta-data
                 android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR"
                 android:resource="@color/navigationColor" />
-
-            <meta-data android:name="android.support.customtabs.trusted.SPLASH_IMAGE_DRAWABLE"
-                android:resource="@drawable/splash"/>
-
-            <meta-data android:name="android.support.customtabs.trusted.SPLASH_SCREEN_BACKGROUND_COLOR"
-                android:resource="@color/backgroundColor"/>
-
-            <meta-data android:name="android.support.customtabs.trusted.SPLASH_SCREEN_FADE_OUT_DURATION"
-                android:value="@integer/splashScreenFadeOutDuration"/>
-
-            <meta-data android:name="android.support.customtabs.trusted.FILE_PROVIDER_AUTHORITY"
-                android:value="@string/providerAuthority"/>
-
-            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
+            <meta-data
+                android:name="android.support.customtabs.trusted.SPLASH_IMAGE_DRAWABLE"
+                android:resource="@drawable/splash" />
+            <meta-data
+                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_BACKGROUND_COLOR"
+                android:resource="@color/backgroundColor" />
+            <meta-data
+                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_FADE_OUT_DURATION"
+                android:value="@integer/splashScreenFadeOutDuration" />
+            <meta-data
+                android:name="android.support.customtabs.trusted.FILE_PROVIDER_AUTHORITY"
+                android:value="@string/providerAuthority" />
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
 
             <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="http"/>
-                <data android:host="@string/hostName"/>
-                <data android:scheme="https"/>
-                <data android:host="@string/hostName"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="@string/hostName" />
+                <data android:scheme="http" android:host="@string/hostName" />
             </intent-filter>
 
             <intent-filter>
@@ -79,36 +77,23 @@
 
         </activity>
 
-        <activity android:name="lnconnect.lnconnect"
-            android:label="Bitrequest"
+        <activity
+            android:name="io.bitrequest.app.SchemeHandlerActivity"
+            android:theme="@android:style/Theme.NoDisplay"
             android:launchMode="singleTask"
             android:noHistory="true"
+            android:excludeFromRecents="true"
             android:exported="true">
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="lndconnect" />
                 <data android:scheme="c-lightning-rest" />
                 <data android:scheme="eclair" />
                 <data android:scheme="acinq" />
                 <data android:scheme="lnbits" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="io.bitrequest.app.DynamicLinkActivity"
-            android:label="Bitrequest"
-            android:launchMode="singleTask"
-            android:noHistory="true"
-            android:exported="true">
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="http"/>
-                <data android:host="bitrequest.page.link"/>
-                <data android:scheme="https"/>
-                <data android:host="bitrequest.page.link"/>
+                <data android:scheme="xmrrpc" />
             </intent-filter>
         </activity>
 
@@ -123,15 +108,15 @@
         </provider>
 
         <service
-             android:name="com.google.androidbrowserhelper.trusted.DelegationService"
-             android:enabled="@bool/enableNotification"
-             android:exported="@bool/enableNotification">
-
-             <intent-filter>
-                 <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE"/>
-                 <category android:name="android.intent.category.DEFAULT"/>
-             </intent-filter>
-         </service>
+            android:name="com.google.androidbrowserhelper.trusted.DelegationService"
+            android:enabled="@bool/enableNotification"
+            android:exported="@bool/enableNotification">
+            <intent-filter>
+                <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
 
     </application>
+
 </manifest>

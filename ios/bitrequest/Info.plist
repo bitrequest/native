@@ -90,6 +90,16 @@
 				<string>lnbits</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.github.xmrrpc</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>xmrrpc</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

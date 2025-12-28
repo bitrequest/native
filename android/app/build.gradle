@@ -47,8 +47,8 @@ android {
         applicationId twaManifest.applicationId
         minSdkVersion 23
         targetSdkVersion 36
-        versionCode 58
-        versionName "1.5.9"
+        versionCode 59
+        versionName "1.6.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         // The name for the application on the Android Launcher
@@ -120,7 +120,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    namespace 'com.placeholder'
+    namespace 'io.bitrequest.app'
 }
 
 tasks.register('generateShorcutsFile') {
@@ -161,10 +161,8 @@ tasks.register('generateShorcutsFile') {
 preBuild.dependsOn(generateShorcutsFile)
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:33.15.0')
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.6.1'
+    implementation platform('com.google.firebase:firebase-bom:34.7.0')
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.6.2'
     implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-dynamic-links'
     implementation 'androidx.appcompat:appcompat:1.7.1'
 }
