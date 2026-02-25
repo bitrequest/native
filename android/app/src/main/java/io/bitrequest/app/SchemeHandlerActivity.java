@@ -38,7 +38,7 @@ public class SchemeHandlerActivity extends Activity {
 
         String encoded = Base64.encodeToString(
                 uri.toString().getBytes(),
-                Base64.NO_WRAP
+                Base64.URL_SAFE | Base64.NO_WRAP
         );
 
         String targetUrl = "https://bitrequest.github.io?p=home&scheme=" + encoded;

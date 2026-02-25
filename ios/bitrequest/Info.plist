@@ -100,6 +100,18 @@
 				<string>xmrrpc</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
+			<key>CFBundleURLName</key>
+			<string>io.github.nostr+walletconnect</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>nostr+walletconnect</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

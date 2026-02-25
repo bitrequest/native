@@ -89,6 +89,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="lndconnect" />
+                <data android:scheme="nostr+walletconnect" />
                 <data android:scheme="c-lightning-rest" />
                 <data android:scheme="eclair" />
                 <data android:scheme="acinq" />
